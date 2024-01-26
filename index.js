@@ -53,6 +53,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Listen for incoming requests.
 server.post("/api/messages", async (req, res) => {
   await adapter.process(req, res, async (context) => {
+    console.log(context);
     await bot.run(context);
   });
 });
